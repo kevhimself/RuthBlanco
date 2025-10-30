@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruth Blanco - Coaching</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --coral: #F52F04;
+            --teal: #00B6B2;
+            --off-white: #FAF8F5;
+            --navy: #2C3E50;
+            --light-teal: #E6F7F7;
+        }
+        
+        body {
+            font-family: Georgia, 'Times New Roman', serif;
+            color: var(--navy);
+            background: var(--off-white);
+            line-height: 1.8;
+            font-size: 18px;
+        }
+        
+        h1, h2, h3, .brand-name, button, .cta-button {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        /* Header */
+        header {
+            background: var(--off-white);
+            padding: 1.25rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+        
+        .cta-button {
+            background: var(--coral);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background: #D62704;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245, 47, 4, 0.3);
+        }
+        
+        /* Hero */
+        .hero {
+            background: var(--off-white);
+            padding: 3rem 5% 4rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: clamp(1.75rem, 5vw, 3.5rem);
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: clamp(1rem, 2.5vw, 1.35rem);
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: var(--navy);
+            opacity: 0.9;
+        }
+        
+        /* Sections */
+        section {
+            padding: 3rem 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .section-welcome {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem 6%;
+            margin: 1rem 0 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        
+        .section-welcome p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-welcome .closing {
+            margin-top: 2rem;
+            font-weight: 600;
+            color: var(--coral);
+        }
+        
+        h2 {
+            font-size: clamp(1.6rem, 4vw, 2.3rem);
+            margin-bottom: 1.75rem;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .accent-section {
+            background: var(--light-teal);
+            border-radius: 20px;
+            padding: 2.5rem 6%;
+            margin: 2.5rem 0;
+        }
+        
+        .coaching-description {
+            background: white;
+            border-left: 4px solid var(--coral);
+            padding: 1.75rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.9;
+        }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin: 2.5rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .brand-name {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 4.5rem 5% 5.5rem;
+            }
+            
+            .section-welcome {
+                padding: 3.5rem 7%;
+            }
+            
+            .accent-section {
+                padding: 3rem 7%;
+            }
+        }
+        
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        
+        .card h3 {
+            color: var(--coral);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Quote */
+        .testimonial {
+            background: var(--navy);
+            color: white;
+            padding: 3rem 6%;
+            margin: 3rem 0;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .testimonial blockquote {
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            line-height: 1.9;
+            max-width: 850px;
+            margin: 0 auto 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial cite {
+            font-style: normal;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        /* Experience */
+        .experience {
+            background: var(--off-white);
+            padding: 3rem 5%;
+        }
+        
+        .experience-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .linkedin-link {
+            color: var(--coral);
+            text-decoration: none;
+            border-bottom: 2px solid var(--coral);
+            transition: opacity 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .linkedin-link:hover {
+            opacity: 0.7;
+        }
+        
+        .moe-badge {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        /* Offer */
+        .offer {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 6%;
+            margin: 2.5rem 0;
+            box-shadow: 0 8px 28px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .offer h2 {
+            color: var(--coral);
+        }
+        
+        .offer-details {
+            text-align: left;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: var(--light-teal);
+            padding: 2rem;
+            border-radius: 16px;
+        }
+        
+        .offer-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+        
+        .offer-details ul {
+            list-style: none;
+            margin: 1.25rem 0;
+        }
+        
+        .offer-details li {
+            padding: 0.6rem 0;
+            padding-left: 1.75rem;
+            position: relative;
+        }
+        
+        .offer-details li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--coral);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            color: var(--coral);
+            font-weight: 600;
+            margin: 1.5rem 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .offer-note {
+            font-size: 0.95rem;
+            font-style: italic;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--light-teal);
+            border-radius: 20px;
+            padding: 3rem 6%;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: white;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+        
+        footer h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+        
+        footer a {
+            color: var(--coral);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        footer a:hover {
+            opacity: 0.8;
+        }
+        
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 767px) {
+            header {
+                padding: 1rem 4%;
+            }
+            
+            .hero {
+                padding: 2.5rem 4% 3rem;
+            }
+            
+            section {
+                padding: 2.5rem 4%;
+            }
+            
+            .section-welcome,
+            .accent-section,
+            .offer,
+            .cta-section,
+            .testimonial {
+                padding: 2rem 5%;
+                border-radius: 16px;
+            }
+            
+            .offer-details {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="brand-name">Ruth Blanco</div>
+        <a href="https://calendly.com/ruth_blanco2003/30min" class="cta-button">Book a chat</a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Find your way forward.</h1>
+        <p>Calm, practical coaching to help you untangle confusion and reconnect with your strengths</p>
+        <a href="https://calendly.com/ruth_blanco2003/30min" class="cta-button">Book a chat</a>
+    </section>
+
+    <!-- WELCOME SECTION -->
+    <section>
+        <div class="section-welcome">
+            <h2>Welcome.</h2>
+            <p>You know you don't need fixing. You're not broken. But you might be feeling stuck, or overwhelmed at work, or unsure about your next steps. You may just have lost confidence in who you are.</p>
+            
+            <p>I offer structured, thoughtful coaching to help you get clear on what matters, where you're stuck, and what to do about it. No jargon. No quick fixes. Just calm, honest conversations that turn overwhelm into small, achievable steps with support that holds you to them.</p>
+            
+            <p>I help people find clarity when work (and life) feels overwhelming. I work with you to untangle the confusion, reconnect with your strengths, and find practical next steps that feel authentically yours.</p>
+            
+            <p class="closing">If you've got a problem, and you know where to find her, maybe you should hire… Ruth. Let's talk.</p>
+        </div>
+    </section>
+
+    <!-- WHAT DOES RUTH DO -->
+    <section class="accent-section">
+        <h2>What does Ruth do?</h2>
+        <p>Coaching is about authentic conversations, so rather than sweat over a neat summary, I had a chat about what I think my coaching is, and here's what I said:</p>
+        
+        <div class="coaching-description">
+            "Coaching feels like a puzzle you're helping to solve with someone; helping them find out the answers, seeing people grow in confidence and clarity.<br><br>
+            
+            It's helping them realise their strengths, which they can apply to any situation they're struggling with - helping them join the dots.<br><br>
+            
+            Really, coaching is helping people see the potential that's already in them."
+        </div>
+    </section>
+
+    <!-- WHO'S IT FOR / HOW DOES SHE DO IT -->
+    <section>
+        <div class="two-col">
+            <div class="card">
+                <h3>Who's it for?</h3>
+                <p>Maybe you're thinking about a change - a new sector, a new role, a new way of working - but you're not sure how to get there or even what "there" really looks like.</p>
+                <p>Or maybe it's not so dramatic. You're just feeling burnt out and disheartened, but can't quite articulate why.</p>
+            </div>
+            
+            <div class="card">
+                <h3>How does she do it?</h3>
+                <p>My coaching is grounded, kind, curious and practical.</p>
+                <p>I meet you exactly where you are, no one-size-fits-all approach. I create a calm space where you can think clearly and do your best work.</p>
+                <p>I listen deeply, help you find small, doable steps (not overwhelming transformations), and reflect back your own strengths, often ones you didn't know you had.</p>
+                <p>No jargon. No imposing methods. Just curious, caring support that leads to real, pragmatic steps forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial">
+        <blockquote>
+            "You met me where I was. You took the time to get to know me and were sensitive to what I needed at the time. You weren't patronising about the relatively obvious things. The way you helped me articulate specific actions was great... small, doable things I could achieve without it feeling too big"
+        </blockquote>
+        <cite>— Kata, London</cite>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience">
+        <div class="experience-content">
+            <h2>My experience</h2>
+            <p>I have over 25 years of leadership experience in Communications, working across many multinationals, small teams, corporate, charity, and even the Church of England.</p>
+            
+            <p>I understand different cultures, different pressures, different worlds – and she speaks in plain English, not coach-speak. Find out more on <a href="https://www.linkedin.com/in/ruth-blanco/" class="linkedin-link" target="_blank">LinkedIn</a></p>
+            
+            <div class="moe-badge">Certified MOE Coach®</div>
+        </div>
+    </section>
+
+    <!-- THE OFFER -->
+    <section>
+        <div class="offer">
+            <h2>What's the offer?</h2>
+            
+            <div class="offer-details">
+                <h3>8-week Coaching Journey</h3>
+                <ul>
+                    <li>8 × 50-minute sessions</li>
+                    <li>Online via Zoom (creating that safe, focused space)</li>
+                    <li>Also able to meet in person, either in the Surrey/Sussex borders or near Westminster, London</li>
+                </ul>
+                
+                <div class="price">£555</div>
+                
+                <p class="offer-note">(Plus a free 30-minute discovery call to see if we're a good fit)</p>
+            </div>
+            
+            <a href="https://calendly.com/ruth_blanco2003/30min" class="cta-button">Book a chat</a>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section>
+        <div class="cta-section">
+            <h2>Book a free 30-minute discovery call with me</h2>
+            <p>Let's have a chat and see if working together feels right for both of us.</p>
+            <a href="https://calendly.com/ruth_blanco2003/30min" class="cta-button">Book a chat</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>Ruth Blanco</h3>
+        <p>Certified MOE Coach® and one awesome human</p>
+        <p>Email: <a href="mailto:ruthblanco1977@gmail.com">ruthblanco1977@gmail.com</a></p>
+        <p class="footer-note">Copyright © 2025 Ruth Blanco, All Rights Reserved<br>
+        Built with the help of Kev Self and AI (thanks team)</p>
+    </footer>
+</body>
+</html>
